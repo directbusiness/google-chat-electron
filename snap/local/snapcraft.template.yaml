@@ -23,7 +23,6 @@ parts:
       - libnss3
       - libnspr4
       - libunity9
-      - libnotify4
       - libappindicator3-1
 
 apps:
@@ -39,6 +38,7 @@ apps:
       - network
       - network-bind
       - network-observe
+      - unity7
 
     desktop: usr/share/applications/google-chat-electron.desktop
     autostart : google-chat-electron.desktop

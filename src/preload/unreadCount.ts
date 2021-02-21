@@ -29,7 +29,7 @@ const getMessageCount = (): Number => {
 };
 
 const emitCount = () => {
-  ipcRenderer.send('unreadCount', getMessageCount())
+  ipcRenderer.send('unreadCount', 1)
 }
 
 window.addEventListener('DOMContentLoaded', () => {
