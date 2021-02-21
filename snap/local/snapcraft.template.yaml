@@ -22,6 +22,9 @@ parts:
     stage-packages:
       - libnss3
       - libnspr4
+      - libunity9
+      - libnotify4
+      - libappindicator3-1
 
 apps:
   google-chat-electron:
