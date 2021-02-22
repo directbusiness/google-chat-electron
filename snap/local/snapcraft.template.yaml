@@ -25,10 +25,24 @@ parts:
       - libunity9
       - libappindicator3-1
 
+  cleanup:
+    after:
+      - electron-deb
+    plugin: nil
+    build-snaps:
+      - core18
+      - gnome-3-34-1804
+    override-prime: |
+      set -eux
+
+      for snap in "core18" "gnome-3-34-1804"; do
+        cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
+      done;
+
 apps:
   google-chat-electron:
     command: usr/bin/google-chat-electron --no-sandbox
-    extensions: [gnome-3-34]
+    extensions: [ gnome-3-34 ]
     plugs:
       - audio-playback
       - home
@@ -41,7 +55,7 @@ apps:
       - unity7
 
     desktop: usr/share/applications/google-chat-electron.desktop
-    autostart : google-chat-electron.desktop
+    autostart: google-chat-electron.desktop
 
     environment:
       DISABLE_WAYLAND: 1
